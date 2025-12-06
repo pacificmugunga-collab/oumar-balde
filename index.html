@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Joueur – U21 | Football Pro (Bleu)</title>
+  <meta name="description" content="Portfolio pro d’un joueur en académie : profil, stats, highlights, logs et contact (email + WhatsApp). Palette bleue." />
+  <meta name="theme-color" content="#0b1220" />
+  <meta property="og:title" content="Portfolio Joueur – U21 | Football Pro (Bleu)" />
+  <meta property="og:description" content="Profil, stats, highlights, logs et contact – prêt pour le mercato." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts + Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } }
+    }
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-[var(--bg)] text-[var(--text)] relative pitch-bg">
+<header class="sticky top-0 z-50 border-b border-[var(--border)] backdrop-blur-xl bg-[color-mix(in_srgb,var(--bg)_80%,transparent)]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="assets/images/ball.svg" alt="" class="h-9 w-9 rounded-xl shadow-glow" />
+        <span class="font-semibold tracking-wide">Portfolio Joueur</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-[color-mix(in_srgb,var(--text)_65%,transparent)]">
+        <a class="hover:text-[var(--text)]" href="#profil">Profil</a>
+        <a class="hover:text-[var(--text)]" href="#stats">Statistiques</a>
+        <a class="hover:text-[var(--text)]" href="#highlights">Highlights</a>
+        <a class="hover:text-[var(--text)]" href="#matchs">Match logs</a>
+        <a class="hover:text-[var(--text)]" href="#contact">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a href="#contact" class="hidden sm:inline-flex btn-pro">Prendre contact</a>
+        <button id="themeToggle" title="Basculer clair / sombre" class="btn-outline !p-2 h-10 w-10 flex items-center justify-center" aria-pressed="false" aria-label="Basculer le thème">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="pt-10 md:pt-14">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div class="reveal">
+        <span class="chip" id="academyBadge">Académie • U21</span>
+        <h1 class="mt-5 text-4xl sm:text-6xl font-extrabold leading-tight">
+          <span id="PLAYER_NAME_H1" class="bg-clip-text text-transparent bg-gradient-to-b from-[var(--text)] to-[color-mix(in_srgb,var(--text)_60%,transparent)]">Prénom NOM</span>
+          <span class="block mt-2 text-[var(--accent)]" id="positionBadge">Attaquant (9) • Pied droit</span>
+        </h1>
+        <p class="mt-5 text-[var(--muted)] max-w-prose">
+          Joueur rapide, appels en profondeur, finition des deux pieds. Disponible pour essai <strong>Déc–Jan</strong> et <strong>Juin–Juil</strong>.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a id="heroCvLink" href="assets/CV (Oumar Balde).pdf" download class="btn-pro">Télécharger le CV</a>
+          <a href="#highlights" class="btn-outline">Voir les highlights</a>
+          <a href="#contact" class="btn-outline">Contacter</a>
+        </div>
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="glass p-4 text-center"><div class="text-xs text-[var(--muted)]">Matchs</div><div class="mt-1 text-2xl font-bold" id="stat-matches">24</div></div>
+          <div class="glass p-4 text-center"><div class="text-xs text-[var(--muted)]">Minutes</div><div class="mt-1 text-2xl font-bold" id="stat-minutes">1 742</div></div>
+          <div class="glass p-4 text-center"><div class="text-xs text-[var(--muted)]">Buts</div><div class="mt-1 text-2xl font-bold" id="stat-goals">17</div></div>
+          <div class="glass p-4 text-center"><div class="text-xs text-[var(--muted)]">Passes D</div><div class="mt-1 text-2xl font-bold" id="stat-assists">7</div></div>
+        </div>
+      </div>
+      <div class="relative reveal">
+        <img src="assets/images/om7.jpg" alt="Portrait du joueur" class="w-full rounded-3xl border border-[var(--border)] shadow-card object-cover aspect-[4/5]" />
+        <div class="absolute -bottom-4 -right-4 hidden sm:block glass p-4">
+          <p class="text-xs text-[var(--muted)]">Postes: <span id="positionStats">9 / Ailier droit</span><br/>Taille: <span id="heightDisplay">1,83m</span> • Poids: <span id="weightDisplay">74kg</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIL -->
+<section id="profil" class="py-16 md:py-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="mb-6">
+      <div class="h-0.5 w-28 rounded-full bg-[var(--accent)]/70 shadow-glow"></div>
+      <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Profil & Bio</h2>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 reveal">
+        <p class="text-[var(--muted)] max-w-prose">
+          Né le <strong id="birthDate">2009-04-17</strong> (<span id="ageDisplay">16</span> ans). Nationalités: <strong id="nationality">FR/PT</strong>. Langues: <strong id="languages">français, portugais, anglais</strong>.
+          Licence Fédé: <strong id="fedLicense">#123456</strong> (2025/26). Droit à l'image: <strong id="imageRights">Oui</strong>.
+        </p>
+        <div class="mt-6 grid sm:grid-cols-2 gap-4">
+          <div class="glass p-5">
+            <h3 class="font-semibold">Caractéristiques</h3>
+            <ul class="mt-3 text-sm leading-6 text-[var(--muted)] list-disc pl-5">
+              <li>Pied fort: droit • bonne finition pied faible</li>
+              <li>Points forts: appels, pressing, détente</li>
+              <li>Axes: jeu dos au but, protection de balle</li>
+            </ul>
+          </div>
+          <div class="glass p-5">
+            <h3 class="font-semibold">Clubs & Parcours</h3>
+            <ul id="clubsList" class="mt-3 text-sm leading-6 text-[var(--muted)]">
+              <li><strong>2024–2025</strong> • Académie X U19 • National</li>
+              <li><strong>2022–2024</strong> • Club Y U17 • Régional</li>
+              <li><strong>2018–2022</strong> • Formation locale • U13–U15</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <aside class="space-y-4 reveal">
+        <div class="glass p-5">
+          <h3 class="font-semibold">Téléchargements</h3>
+          <ul class="mt-3 text-sm space-y-2">
+            <li><a id="cvLink" class="text-[var(--accent)] hover:underline" href="assets/CV (Oumar Balde).pdf" download>CV sportif (PDF)</a></li>
+            <li><a id="imagesLink" class="text-[var(--accent)] hover:underline" href="#" target="_blank">Galerie et Statistiques</a></li>
+          </ul>
+        </div>
+        <div class="glass p-5">
+          <h3 class="font-semibold">Liens officiels</h3>
+          <ul class="mt-3 text-sm space-y-2">
+            <li><a class="text-[var(--accent)] hover:underline" href="#" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a class="text-[var(--accent)] hover:underline" href="#" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a class="text-[var(--accent)] hover:underline" href="#" target="_blank" rel="noopener">Transfermarkt (si dispo)</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats" class="py-16 md:py-20 border-t border-[var(--border)]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <div>
+        <div class="h-0.5 w-28 rounded-full bg-[var(--accent)]/70 shadow-glow"></div>
+        <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Statistiques saison 2024/25</h2>
+      </div>
+      <div class="text-sm reveal">
+        <label for="minFilter" class="mr-2 text-[var(--muted)]">Filtrer ≥ minutes:</label>
+        <input id="minFilter" type="number" class="w-24 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-1" value="0" />
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="glass p-6 reveal">
+        <div class="overflow-x-auto">
+          <table id="statsTable" class="min-w-full text-sm">
+            <thead class="text-left text-[var(--muted)]">
+              <tr>
+                <th class="py-2 pr-4">Compétition</th>
+                <th class="py-2 pr-4">M</th>
+                <th class="py-2 pr-4">Min</th>
+                <th class="py-2 pr-4">Buts</th>
+                <th class="py-2 pr-4">PD</th>
+                <th class="py-2 pr-4">xG</th>
+                <th class="py-2">xA</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y" style="border-color: var(--border);">
+              <tr>
+                <td class="py-2 pr-4">U19 National</td><td class="py-2 pr-4">18</td><td class="py-2 pr-4">1310</td>
+                <td class="py-2 pr-4">13</td><td class="py-2 pr-4">5</td><td class="py-2 pr-4">10.8</td><td class="py-2">4.1</td>
+              </tr>
+              <tr>
+                <td class="py-2 pr-4">Coupe régionale</td><td class="py-2 pr-4">6</td><td class="py-2 pr-4">432</td>
+                <td class="py-2 pr-4">4</td><td class="py-2 pr-4">2</td><td class="py-2 pr-4">3.2</td><td class="py-2">1.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-5 grid gap-3 sm:grid-cols-3">
+          <div><label class="text-xs text-[var(--muted)]">Minutes</label><input id="calcMin" type="number" class="w-full rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2" value="1742" /></div>
+          <div><label class="text-xs text-[var(--muted)]">Buts</label><input id="calcG" type="number" class="w-full rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2" value="17" /></div>
+          <div><label class="text-xs text-[var(--muted)]">Passes D</label><input id="calcA" type="number" class="w-full rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2" value="7" /></div>
+          <div class="sm:col-span-3 text-sm text-[var(--accent)]">Contributions/90: <span id="per90" class="font-semibold">1.24</span></div>
+        </div>
+      </div>
+
+      <div class="glass p-6 reveal">
+        <h3 class="font-semibold mb-4">Profil de performance (radar)</h3>
+        <canvas id="radar" class="w-full h-80"></canvas>
+        <p class="mt-3 text-xs text-[var(--muted)]">Comparaison vs. repères poste <em>(0–100)</em>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights" class="py-16 md:py-20 border-t border-[var(--border)]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="mb-6">
+      <div class="h-0.5 w-28 rounded-full bg-[var(--accent)]/70 shadow-glow"></div>
+      <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Highlights & Matches complets</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="reveal">
+        <div class="aspect-video rounded-2xl overflow-hidden border border-[var(--border)] bg-black">
+          <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Highlights Joueur" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <p class="mt-3 text-sm text-[var(--muted)]">Source: YouTube</p>
+        <div class="mt-4 text-sm text-[var(--muted)] flex flex-wrap items-center gap-3">
+          <span>Match complet 1: <a id="FULL1" class="text-[var(--accent)] hover:underline" href="#" data-url="https://example.com/fullmatch1">lien privé</a></span> •
+          <span>Match complet 2: <a id="FULL2" class="text-[var(--accent)] hover:underline" href="#" data-url="https://example.com/fullmatch2">lien privé</a></span>
+          <button id="copyLinksBtn" class="btn-outline !px-3 !py-1 text-xs">Copier les liens</button>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 class="font-semibold mb-3">Galerie action</h3>
+        <div class="grid grid-cols-3 gap-3">
+          <img src="assets/images/om1.jpg" alt="Action 1" class="rounded-xl object-cover aspect-square border border-[var(--border)]"/>
+          <img src="assets/images/om8.jpg" alt="Action 2" class="rounded-xl object-cover aspect-square border border-[var(--border)]"/>
+          <img src="assets/images/OM3.jpg" alt="Action 3" class="rounded-xl object-cover aspect-square border border-[var(--border)]"/>
+          <img src="assets/images/OM7.jpg" alt="Action 4" class="rounded-xl object-cover aspect-square border border-[var(--border)]"/>
+          <img src="assets/images/OM10.jpg" alt="Action 5" class="rounded-xl object-cover aspect-square border border-[var(--border)]"/>
+          <img src="assets/images/OM9.jpg" alt="Action 6" class="rounded-xl object-cover aspect-square border border-[var(--border)]"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MATCH LOGS -->
+<section id="matchs" class="py-16 md:py-20 border-t border-[var(--border)]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="mb-6 flex items-end justify-between gap-4">
+      <div>
+        <div class="h-0.5 w-28 rounded-full bg-[var(--accent)]/70 shadow-glow"></div>
+        <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Logs par match (extraits)</h2>
+      </div>
+      <div class="flex items-center gap-3 text-sm reveal">
+        <label class="text-[var(--muted)]" for="roleFilter">Poste:</label>
+        <select id="roleFilter" class="rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2">
+          <option value="">Tous</option><option>9</option><option>AD</option><option>AG</option>
+        </select>
+        <label class="text-[var(--muted)]" for="minMatchFilter">Min ≥</label>
+        <input id="minMatchFilter" type="number" class="w-20 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 py-2" value="0"/>
+      </div>
+    </div>
+    <div class="overflow-x-auto glass p-2 reveal">
+      <table id="matchTable" class="min-w-full text-sm">
+        <thead class="text-left text-[var(--muted)]">
+          <tr>
+            <th class="py-2 pr-4">Date</th>
+            <th class="py-2 pr-4">Adversaire</th>
+            <th class="py-2 pr-4">Compétition</th>
+            <th class="py-2 pr-4">Poste</th>
+            <th class="py-2 pr-4">Min</th>
+            <th class="py-2 pr-4">Buts</th>
+            <th class="py-2 pr-4">PD</th>
+            <th class="py-2">Vidéo</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y" style="border-color: var(--border);">
+          <tr>
+            <td class="py-2 pr-4">2025-05-12</td><td class="py-2 pr-4">Académie Z</td><td class="py-2 pr-4">U19 Nat.</td>
+            <td class="py-2 pr-4">9</td><td class="py-2 pr-4">90</td><td class="py-2 pr-4">2</td><td class="py-2 pr-4">0</td>
+            <td class="py-2"><a class="text-[var(--accent)] hover:underline" href="#">Temps forts</a></td>
+          </tr>
+          <tr>
+            <td class="py-2 pr-4">2025-05-05</td><td class="py-2 pr-4">Club Y</td><td class="py-2 pr-4">Coupe</td>
+            <td class="py-2 pr-4">9</td><td class="py-2 pr-4">78</td><td class="py-2 pr-4">1</td><td class="py-2 pr-4">1</td>
+            <td class="py-2"><a class="text-[var(--accent)] hover:underline" href="#">Temps forts</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-16 md:py-20 border-t border-[var(--border)]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="mb-6">
+      <div class="h-0.5 w-28 rounded-full bg-[var(--accent)]/70 shadow-glow"></div>
+      <h2 class="mt-3 text-2xl sm:text-3xl font-bold">Prendre contact</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      <div class="glass p-7 reveal">
+        <p class="text-[var(--muted)]">Le formulaire envoie un <strong>email</strong> (mailto) et peut aussi ouvrir <strong>WhatsApp</strong> avec message prérempli.</p>
+        <ul class="mt-3 text-sm text-[var(--muted)] list-disc pl-5">
+          <li>Réponse sous 24–48h • Références sur demande</li>
+          <li class="text-xs">* Joueur mineur (16 ans) — échanges supervisés/consentement requis.</li>
+        </ul>
+        <div class="mt-6 flex gap-3">
+          <a href="#" id="waDirectBtn" class="btn-pro">WhatsApp direct</a>
+          <a href="#highlights" class="btn-outline">Voir la vidéo</a>
+        </div>
+      </div>
+
+      <form id="contactForm" class="glass p-7 space-y-4 reveal" novalidate>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-[var(--muted)]" for="org">Nom & Organisation</label>
+            <input id="org" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" placeholder="Mme/M. Dupont – Club XYZ" required />
+          </div>
+          <div>
+            <label class="text-sm text-[var(--muted)]" for="role">Rôle</label>
+            <select id="role" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" required>
+              <option value="">Sélectionner…</option>
+              <option>Scout</option><option>Coach</option><option>Directeur sportif</option><option>Agent</option><option>Parent</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-[var(--muted)]" for="email">Email</label>
+            <input id="email" type="email" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" placeholder="pro@club.com" required />
+          </div>
+          <div>
+            <label class="text-sm text-[var(--muted)]" for="tel">Téléphone</label>
+            <input id="tel" type="tel" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" placeholder="+32 …" />
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm text-[var(--muted)]" for="subject">Objet</label>
+            <select id="subject" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" required>
+              <option value="">Sélectionner…</option>
+              <option>Demande d’essai</option>
+              <option>Invitation match/entraînement</option>
+              <option>Demande d’informations</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-sm text-[var(--muted)]" for="when">Période souhaitée</label>
+            <input id="when" type="text" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" placeholder="ex. 15–30 juin" />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm text-[var(--muted)]" for="message">Message</label>
+          <textarea id="message" rows="4" class="mt-1 w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] px-4 py-2" placeholder="Bonjour, intéressés pour un essai fin juin…" required></textarea>
+        </div>
+        <div class="flex items-center gap-3">
+          <input id="sendWA" type="checkbox" class="h-4 w-4 accent-[var(--accent)]" checked />
+          <label for="sendWA" class="text-sm text-[var(--muted)]">Envoyer aussi sur WhatsApp</label>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button id="sendBtn" class="btn-pro" type="submit">Envoyer</button>
+          <button id="previewBtn" class="btn-outline" type="button">Prévisualiser</button>
+        </div>
+        <p class="text-xs text-[var(--muted)]">En envoyant, vous acceptez l’utilisation de vos données pour traiter votre demande.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="py-10 text-center text-sm text-[var(--muted)] border-t border-[var(--border)]">
+  © <span id="year"></span> Portfolio Joueur – Football Pro (Bleu).
+</footer>
+
+<!-- Floating CTA (mobile) -->
+<div class="fixed md:hidden bottom-4 left-1/2 -translate-x-1/2 z-40 flex gap-2">
+  <a href="#contact" class="btn-pro">Contact</a>
+  <a href="#" id="waDirectBtnMobile" class="btn-outline">WhatsApp</a>
+</div>
+
+<!-- Modal Preview -->
+<div id="previewModal" class="modal-backdrop">
+  <div class="modal p-6">
+    <div class="flex items-start justify-between gap-4">
+      <h3 class="text-lg font-bold">Prévisualisation du message</h3>
+      <button id="modalClose" class="btn-outline !px-3 !py-1 text-xs">Fermer</button>
+    </div>
+    <div class="mt-4 text-sm">
+      <p class="text-[var(--muted)]"><strong>Sujet :</strong> <span id="previewSubject"></span></p>
+      <pre id="previewBody" class="mt-3 whitespace-pre-wrap bg-[color-mix(in_srgb,var(--bg)_92%,transparent)] border border-[var(--border)] rounded-lg p-3"></pre>
+    </div>
+  </div>
+</div>
+
+<!-- Statistics Gallery Modal -->
+<div id="statsModal" class="modal-backdrop" style="display:none;">
+  <div class="modal p-6" style="max-width: 800px;">
+    <div class="flex items-start justify-between gap-4">
+      <h3 class="text-lg font-bold">Galerie et Statistiques</h3>
+      <button id="statsModalClose" class="btn-outline !px-3 !py-1 text-xs">Fermer</button>
+    </div>
+    <div class="mt-4 grid grid-cols-2 gap-4">
+      <img src="assets/images/statistics.jpg" alt="Statistics 1" class="rounded-lg object-cover w-full border border-[var(--border)]"/>
+      <img src="assets/images/om2.jpg" alt="Statistics 2" class="rounded-lg object-cover w-full border border-[var(--border)]"/>
+      <img src="assets/images/om3.jpg" alt="Statistics 3" class="rounded-lg object-cover w-full border border-[var(--border)]"/>
+      <img src="assets/images/om4.jpg" alt="Statistics 4" class="rounded-lg object-cover w-full border border-[var(--border)]"/>
+      <img src="assets/images/om5.jpg" alt="Statistics 5" class="rounded-lg object-cover w-full border border-[var(--border)]"/>
+      <img src="assets/images/om6.jpg" alt="Statistics 6" class="rounded-lg object-cover w-full border border-[var(--border)]"/>
+    </div>
+  </div>
+</div>
+
+<!-- App Data -->
+<script>
+window.playersData = [
+  {
+    "Nom": "BALDE",
+    "Prénom": "Oumar",
+    "Date Naissance": "2006-08-08",
+    "Age": "nan",
+    "Sexe": "Masculin",
+    "Taille": "1,81 cm",
+    "Poids": "74 kg",
+    "Nationnalité": "Belgium Guinea",
+    "Langue": "nan",
+    "Clubs & Parcours": "2025-2024 : UNIONSAINT-GILLOISE(U21ELITE)\n2024-2023 : ROFCSTOCKEL(U19)\n2023-2022 : BLACKSTART(U14-U17)\n2022-2021 : UNIONSAINT-GILLOISE(U15)\n2021-2020 : UNIONSAINT-GILLOISE(U13-U11)",
+    "Statistiques": "nan",
+    "Clubs actuel": "UNIONSAINT-GILLOISE(U21ELITE)",
+    "Position": "Attacker, Offensive Mildfield",
+    "Licence Fédé": "nan",
+    "Droit à l'image": "nan",
+    "Nbr matchs": "nan",
+    "Nbr de matchs gagné": "nan",
+    "Nbr de matchs perdu": "nan",
+    "Nbr de matchs nul": "nan",
+    "Nbr buts": "nan",
+    "Nbr passe": "nan",
+    "Nbr médails": "nan",
+    "Minutes": "nan",
+    "CV": "https://drive.google.com/file/d/1u1W7IqF7SarO1gpVblaKkB04AMSr6FAd/view?usp=drive_link",
+    "Liens images": "https://drive.google.com/drive/folders/1JsWB93iZ7lI-p7XBeefyv-y-kEYapBNN?usp=drive_link",
+    "Disponibilité": "nan",
+    "Contact": "nan",
+    "Carte identite": "nan"
+  },
+  {
+    "Nom": "DIALLO",
+    "Prénom": "Boubacar Yacine",
+    "Date Naissance": "2008-08-28",
+    "Age": "nan",
+    "Sexe": "Masculin",
+    "Taille": "1,92 cm",
+    "Poids": "73 kg",
+    "Nationnalité": "Belgium Guinea",
+    "Langue": "nan",
+    "Clubs & Parcours": "2026-2025: RC SPORTING DE CHARLEROI (U18 ELITE) \n2025-2024: RFC LIEGE (U21 ELITE) \n2024-2023: OLYMPIC CHARLEROI (U17 A) \n2023-2022: OLYMPIC CHARLEROI (U16 A) \n2022-2021: OLYMPIC CHARLEROI (U15 A) ",
+    "Statistiques": "nan",
+    "Clubs actuel": "RC Sporting de Charleroi (U18)",
+    "Position": "Central Defender - Left Back",
+    "Licence Fédé": "nan",
+    "Droit à l'image": "nan",
+    "Nbr matchs": "nan",
+    "Nbr de matchs gagné": "nan",
+    "Nbr de matchs perdu": "nan",
+    "Nbr de matchs nul": "nan",
+    "Nbr buts": "nan",
+    "Nbr passe": "nan",
+    "Nbr médails": "nan",
+    "Minutes": "nan",
+    "CV": "https://drive.google.com/file/d/1OHdzihJWF4gcnH8VUvfh26PtUFvGClCc/view?usp=drive_link",
+    "Liens images": "https://drive.google.com/drive/folders/1P2nxULUMPI9sASyK3T3fUUjecVRutBo2?usp=drive_link",
+    "Disponibilité": "nan",
+    "Contact": "nan",
+    "Carte identite": "nan"
+  }
+];
+</script>
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<!-- App -->
+<script src="assets/js/app.js"></script>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Oumar BLADE",
+  "jobTitle": "Attacker, Offensive Mildfield",
+  "memberOf": { "@type": "SportsTeam", "name": "UNIONSAINT-GILLOISE(U21ELITE)" },
+  "birthDate": "2006-08-08",
+  "height": "1.81 m",
+  "weight": "74 kg",
+  "url": "https://example.com/joueur",
+  "sameAs": ["https://instagram.com/username","https://youtube.com/@username"],
+  "image": "assets/images/portrait.svg"
+}
+</script>
+</body>
+</html>
